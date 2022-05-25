@@ -113,7 +113,7 @@ public void closed(String message) {
 
 ## Extensions
 Projects using this SDK:
-- [Banglalink](https://github.com/banglalink) (see [#1](https://github.com/sslwireless-mobile/sslcommerz-android/issues/30))
+- [MyBL](https://github.com/banglalink) (see [#1](https://play.google.com/store/apps/details?id=com.arena.banglalinkmela.app&hl=en&gl=US))
 
 ## License
 
