@@ -9,19 +9,23 @@
 
 
 
+![Sslcommerz logo](https://www.sslcommerz.com/wp-content/uploads/2019/11/footer_logo.png)
+
+
+<img width="40%" align="right" src="https://github.com/sslwireless-mobile/sslcommerz-android/blob/master/art/1.jpg"/>
 
 
 
-<img width="40%" align="right" src="https://github.com/sslwireless-mobile/sslcommerz-android/raw/main/media/screenshot.png"/>
-
-SSLCOMMERZ is the largest payment gateway aggregator in Bangladesh and a pioneer in the FinTech industry since 2010. We empower over 3500+ businesses by offering the best-in-class digital payment solutions which enable them to extend their businesses across mobile and web platforms.
-
-
-
-|[API](https://eltos.github.io/sslcommerz-android)|[Wiki](https://github.com/sslwireless-mobile/sslcommerz-android/wiki)|[Releases](https://github.com/sslwireless-mobile/sslcommerz-android/releases)|[Screenshots](https://github.com/sslwireless-mobile/sslcommerz-android/wiki/Showcase)|[Demo APK](https://github.com/sslwireless-mobile/sslcommerz-android/releases/download/v3.4/testApp.apk)|
+|[API](https://github.com/sslcommerz-android)|[Wiki](https://github.com/sslwireless-mobile/sslcommerz-android/wiki)|[Releases](https://github.com/sslwireless-mobile/sslcommerz-android/releases)|[Screenshots](https://github.com/sslwireless-mobile/sslcommerz-android/wiki/Showcase)|[Demo APK](https://github.com/sslwireless-mobile/sslcommerz-android/releases/download/v3.4/testApp.apk)|
 |-|-|-|-|-|
 
 
+
+Official Documentation: 
+
+Documents: [Click here](https://drive.google.com/file/d/1xH3u-Aijy-B19cIvpQQmazqZp91Tm6K1/view)
+
+Library: [Click here](https://drive.google.com/file/d/1NRY3D5dDcY6RaXragvhMMywniKFAd_fi/view)
 
 ### Features
 
