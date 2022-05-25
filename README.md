@@ -112,10 +112,10 @@ public void closed(String message) {
 ```
 
 ## Extensions
-Known extensions and projects using this SDK:
-- [File/Folder picker](https://github.com/isabsent/FilePicker) (see [#30](https://github.com/sslwireless-mobile/sslcommerz-android/issues/30))
+Projects using this SDK:
+- [Banglalink](https://github.com/banglalink) (see [#1](https://github.com/sslwireless-mobile/sslcommerz-android/issues/30))
 
 ## License
 
-Copyright 2022 SSLCOMMERZ Ltd ([github.com/sslwireless-mobile](https://github.com/sslwireless-mobile))
+Copyright 2022 SSLCOMMERZ Ltd ([github.com/sslwireless-mobile](https://www.sslcommerz.com/privacy-policy/))
 
