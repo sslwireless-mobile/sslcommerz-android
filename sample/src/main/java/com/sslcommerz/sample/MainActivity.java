@@ -1,4 +1,4 @@
-package com.sslwireless.sslsdkintegration;
+package com.sslcommerz.sample;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -60,24 +60,19 @@ public class MainActivity extends AppCompatActivity implements SSLCTransactionRe
 //        multiCard = findViewById(R.id.multiCard);
 //        rbTest = findViewById(R.id.radio0);
 
-       // binding.etCampaignCode.setText("BLINSCASHBACK");
-        //binding.etProductName.setText("Burger");
-       // binding.etProductCategory.setText("food");
-       // binding.etDiscountAmount.setText("5");
+        binding.storeID.setText("testbox");   
+        binding.storePass.setText("qwerty");  
 
-        binding.storeID.setText("testbox");  //Democampaignlive//banglalinkapp//demotest, testbox, easyUtilityWasalive-(61EE6A1667C7D53673)  //demosslUIlive //easyapp //easyUtilitylive
-        binding.storePass.setText("qwerty");  //5F914562C249D57690//qwerty //5C060F120E17949230  //qwerty  //5FB0FB5D9F7B121661
-
-        binding.etPhone.setText("01408335173");  //dada: 01723264311, 01816253653
-        binding.etCustomerName.setText("Amimul");
-        binding.etEmail.setText("amimul.islam@sslwireless.com");
+        binding.etPhone.setText("019xxxxxxxx");  
+        binding.etCustomerName.setText("test");
+        binding.etEmail.setText("test@gmail.com");
         binding.etAddress.setText("8 Banasree");
         binding.etCity.setText("Dhaka");
         binding.cbCustomer.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked){
-                binding.etPhone.setText("01408335173");
-                binding.etCustomerName.setText("Amimul");
-                binding.etEmail.setText("amimul.islam@sslwireless.com");
+                binding.etPhone.setText("019xxxxxxxx");
+                binding.etCustomerName.setText("test");
+                binding.etEmail.setText("test@gmail.com");
                 binding.etAddress.setText("8 Banasree");
                 binding.etCity.setText("Dhaka");
             }else{
@@ -89,11 +84,7 @@ public class MainActivity extends AppCompatActivity implements SSLCTransactionRe
             }
         });
 
-        //binding.etAmount.setText("21657");
-        //binding.etValueB.setText("{\\\"account_number\\\":\\\"0901255334\\\",\\\"bill_number\\\":\\\"210900560226\\\",\\\"zone_code\\\":\\\"09\\\",\\\"bill_type\\\":\\\"GENERAL-BILL\\\",\\\"bill_amount\\\":\\\"17305\\\",\\\"vat_amount\\\":\\\"2596\\\",\\\"other1_amount\\\":\\\"1731\\\",\\\"other2_amount\\\":\\\"0\\\",\\\"total_amount\\\":\\\"21657\\\",\\\"deducted_amount\\\":\\\"21632\\\",\\\"discount\\\":\\\"0\\\",\\\"convenience_fee\\\":\\\"25\\\"}");
-        //binding.etValueC.setText("WASA");
-        //binding.etUserRefer.setText("zMBEVgpWV+sD2by7rx7NeXx8fDJIOEFwVmJwQ25JeFNoL1pXQ1krRFFvZjhkZzlpYkhTdENaNTZFY3hKMTVNZWlhVlU2eVI5dkh0dGNRdDVRcDNURnlLa2M2SytTUVVkRHdKWENWVzJJR1o1SFQ3N2IranR4T1hTUGNrRG5BPQ==");
-        binding.tvHello.setOnClickListener(v -> initTransaction());
+         binding.tvHello.setOnClickListener(v -> initTransaction());
     }
 
     private void initTransaction() {
@@ -104,20 +95,6 @@ public class MainActivity extends AppCompatActivity implements SSLCTransactionRe
             phoneNumber = binding.etPhone.getText().toString().trim();
         }
 
-        /**demo credentials
-         * user name: testbox
-         * password: qwerty*/
-
-        /**live credentials
-         * user name: demosslUIlive
-         * password: 5C060F120E17949230*/
-        //01730671731 ,       01816253653
-        //multiCard = card, netbanking
-
-//        String[] items = new String[]{"general", "physical-goods", "non-physical-goods"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String> (MainActivity.this, android.R.layout.simple_spinner_item, items);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        binding.spinnerProfile.setAdapter(adapter);
 
         if(binding.radio0.isChecked()) {
             sslCommerzInitialization = new SSLCommerzInitialization(binding.storeID.getText().toString(),
@@ -134,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements SSLCTransactionRe
                     .addOTPReadHashKey("");
         }
 
-        sslCommerzInitialization.addIpnUrl("https://web-if3.conveyor.cloud/OutsideBillPayment/ClientSuccessPaymentUsingSSLCommerzIPN");
         //sslCommerzInitialization.addIpnUrl(binding.etIpn.getText().toString());
 
         final SSLCCustomerInfoInitializer SSLCCustomerInfoInitializer = setCustomerInfo();

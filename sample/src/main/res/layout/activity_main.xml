@@ -1,150 +1,489 @@
-<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
-<androidx.drawerlayout.widget.DrawerLayout
-    android:id="@+id/drawer_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="xyz.parkly.edmodo.cropper.sample.MainActivity">
+    tools:context=".MainActivity">
 
-    <!-- main content view. -->
-    <FrameLayout
-        android:id="@+id/container"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <!-- drawer view. -->
-    <ScrollView
-        android:id="@+id/navigation_drawer"
-        android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#303030"
-        android:orientation="vertical">
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="@dimen/navigation_drawer_width"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:background="#303030"
-            android:orientation="vertical"
-            android:padding="12dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:gravity="center">
 
-            <TextView
-                android:id="@+id/drawer_option_load"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/main_drawer_load"/>
 
-            <View style="@style/Cropper.Widget.Drawer.Seperator"/>
+            <EditText
+                android:id="@+id/storePass"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/storeID"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:hint="Default Store pass set but can edit"
+                android:inputType="text"
+                android:padding="20dp"></EditText>
 
-            <TextView
-                style="@style/Cropper.Widget.Drawer.Title.TextView"
-                android:text="@string/drawer_option_title"/>
+            <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/storePass"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:hint="Enter amount: default 15 BDT"
+                android:inputType="numberDecimal"
+                android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_oval"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_oval"/>
+            <EditText
+                android:id="@+id/multiCard"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/etAmount"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:hint="Enter Multi Card"
+                android:inputType="text"
+                android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_rect"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_rect"/>
+            <EditText
+                android:id="@+id/etIpn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/multiCard"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:hint="Enter IPN URL"
+                android:inputType="text"
+                android:padding="20dp"></EditText>
+            <CheckBox
+                android:id="@+id/cbEmiEnabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etIpn"
+                android:layout_centerHorizontal="true"
+                android:checked="false"
+                android:text="EMI Enabled" />
 
-            <TextView
-                android:id="@+id/drawer_option_customized_overlay"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_customized_overlay"/>
+            <LinearLayout
+                android:id="@+id/layoutCustomerInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cbEmiEnabled"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/drawer_option_min_max_override"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_min_max"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/drawer_option_scale_center"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_scale_center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="Customer Information"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-            <View style="@style/Cropper.Widget.Drawer.Seperator"/>
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/cbCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="16dp"
+                        android:checked="true"
+                        android:text="Fill" />
+                </RelativeLayout>
 
-            <TextView
-                style="@style/Cropper.Widget.Drawer.Title.TextView"
-                android:text="@string/drawer_option_title2"/>
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@id/etAmount"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:hint="Enter phone"
+                    android:inputType="numberDecimal"
+                    android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_scale"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_scale"/>
+                <EditText
+                    android:id="@+id/etCustomerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Customer Name"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_shape"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_shape"/>
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Email"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_guidelines"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_guidelines"/>
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Address"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_aspect_ratio"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_aspect_ratio"/>
+                <EditText
+                    android:id="@+id/etCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="City"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_auto_zoom"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_auto_zoom"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_max_zoom"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_max_zoom"/>
+            <LinearLayout
+                android:id="@+id/layoutProductInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutCustomerInfo"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/drawer_option_set_initial_crop_rect"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_set_initial_crop_rect"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="Product Information"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/drawer_option_reset_crop_rect"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_reset_crop_rect"/>
+                <EditText
+                    android:id="@+id/etProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Product Name"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_multitouch"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_multitouch"/>
+                <EditText
+                    android:id="@+id/etProductCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Product Category"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_show_overlay"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_show_overlay"/>
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:entries="@array/itemselect"
+                    android:theme="@style/CustomSpinnerTheme"
+                    android:spinnerMode="dropdown"/>
 
-            <TextView
-                android:id="@+id/drawer_option_toggle_show_progress_bar"
-                style="@style/Cropper.Widget.Drawer.Option.TextView"
-                android:onClick="onDrawerOptionClicked"
-                android:text="@string/drawer_option_toggle_show_progress_bar"/>
+                <EditText
+                    android:id="@+id/etProductAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/spinnerProfile"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Enter product amount"
+                    android:inputType="numberDecimal"
+                    android:padding="20dp"></EditText>
 
-        </LinearLayout>
-    </ScrollView>
+                <EditText
+                    android:id="@+id/etDiscountAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etProductAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Enter discount amount"
+                    android:inputType="numberDecimal"
+                    android:padding="20dp"></EditText>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutShippingInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutProductInfo"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="Shipping Information"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etShippingMethod"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Shipping Method"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etShippingItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Number Items"
+                    android:inputType="numberDecimal"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etShpiName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Ship Name"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etShipAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="Ship Address"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutShippingInfo"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="Additional Information"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etValueA"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="ValueA"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etValueB"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etAmount"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="ValueB"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etValueC"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="ValueC"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etValueD"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="ValueD"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etBillNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="bill number"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etUserRefer"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="user refer"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etCampaignCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="campaign code"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etInvoiceId"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="invoic id"
+                    android:inputType="text"
+                    android:padding="20dp"></EditText>
+
+                <EditText
+                    android:id="@+id/etNoOffer"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/etPhone"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
+                    android:hint="no offer"
+                    android:inputType="numberDecimal"
+                    android:padding="20dp"></EditText>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/storeID"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/radioGroup1"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:hint="Default Store Id set but can edit"
+                android:inputType="text"
+                android:padding="20dp"></EditText>
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Sandbox" />
+
+                <RadioButton
+                    android:id="@+id/radio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Live" />
+            </RadioGroup>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/tv_hello"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="Pay Now"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</RelativeLayout>
